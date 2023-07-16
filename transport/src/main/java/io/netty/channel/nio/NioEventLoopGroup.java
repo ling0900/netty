@@ -70,6 +70,7 @@ public class NioEventLoopGroup extends MultithreadEventLoopGroup {
     }
 
     public NioEventLoopGroup(int nThreads, Executor executor) {
+        // 这里体现了跨平台NIO操作。SelectorProvider.provider()的底层有个loadProviderFromProperty，着重读一下这个相关的源码就行。
         this(nThreads, executor, SelectorProvider.provider());
     }
 
