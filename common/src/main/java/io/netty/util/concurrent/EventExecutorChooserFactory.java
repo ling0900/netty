@@ -36,6 +36,7 @@ public interface EventExecutorChooserFactory {
 
         /**
          * Returns the new {@link EventExecutor} to use.
+         * 这个是策略模式用到的，有2种实现
          */
         EventExecutor next();
     }

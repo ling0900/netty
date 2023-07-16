@@ -53,6 +53,7 @@ public final class DefaultEventExecutorChooserFactory implements EventExecutorCh
 
         @Override
         public EventExecutor next() {
+            // 这种是2的倍数，用&运算效率高点。
             return executors[idx.getAndIncrement() & executors.length - 1];
         }
     }
@@ -70,6 +71,7 @@ public final class DefaultEventExecutorChooserFactory implements EventExecutorCh
 
         @Override
         public EventExecutor next() {
+            // 递增然后取模策略
             return executors[(int) Math.abs(idx.getAndIncrement() % executors.length)];
         }
     }
