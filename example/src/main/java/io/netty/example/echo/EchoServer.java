@@ -41,7 +41,9 @@ public final class EchoServer {
         final SslContext sslCtx = ServerUtil.buildSslContext();
 
         // Configure the server.
+        // 就是主reactor
         EventLoopGroup bossGroup = new NioEventLoopGroup(1);
+        // 从reactor
         EventLoopGroup workerGroup = new NioEventLoopGroup();
         final EchoServerHandler serverHandler = new EchoServerHandler();
         try {
