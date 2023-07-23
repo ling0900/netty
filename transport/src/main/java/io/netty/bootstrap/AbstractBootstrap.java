@@ -199,9 +199,11 @@ public abstract class AbstractBootstrap<B extends AbstractBootstrap<B, C>, C ext
     /**
      * Validate all the parameters. Sub-classes may override this, but should
      * call the super method in that case.
+     * 平时工作中可以这么写一个函数用来校验。
      */
     public B validate() {
         if (group == null) {
+            // 这就是一个自定义的异常类
             throw new IllegalStateException("group not set");
         }
         if (channelFactory == null) {
@@ -223,6 +225,7 @@ public abstract class AbstractBootstrap<B extends AbstractBootstrap<B, C>, C ext
      * Create a new {@link Channel} and register it with an {@link EventLoop}.
      */
     public ChannelFuture register() {
+        // 参数校验
         validate();
         return initAndRegister();
     }
@@ -264,6 +267,7 @@ public abstract class AbstractBootstrap<B extends AbstractBootstrap<B, C>, C ext
      * Create a new {@link Channel} and bind it.
      */
     public ChannelFuture bind(SocketAddress localAddress) {
+        // 参数校验
         validate();
         return doBind(ObjectUtil.checkNotNull(localAddress, "localAddress"));
     }
