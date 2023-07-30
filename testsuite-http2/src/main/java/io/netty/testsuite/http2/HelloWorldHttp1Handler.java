@@ -41,6 +41,7 @@ public class HelloWorldHttp1Handler extends SimpleChannelInboundHandler<FullHttp
     private final String establishApproach;
 
     HelloWorldHttp1Handler(String establishApproach) {
+        // 这里如何捕获的呢，这个空指针的异常？
         this.establishApproach = checkNotNull(establishApproach, "establishApproach");
     }
 

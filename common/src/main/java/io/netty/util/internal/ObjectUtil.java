@@ -36,6 +36,7 @@ public final class ObjectUtil {
      */
     public static <T> T checkNotNull(T arg, String text) {
         if (arg == null) {
+            // 这种写法很好
             throw new NullPointerException(text);
         }
         return arg;
